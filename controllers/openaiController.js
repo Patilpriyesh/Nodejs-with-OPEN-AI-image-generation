@@ -26,13 +26,14 @@ const generateImage = async (req, res) => {
     json: true,
   };
 
-  request(options,async (error, response, body)=> {
+    request(options,async (error, response, body)=> {
     if (error) {
       res.status(400).json({
         success: false,
         error: error,
       });
     }
+
     const imageUrl =await body.data[0].url;
     res.status(200).json({
       success: true,
